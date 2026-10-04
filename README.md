@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://leetcode.com/u/IQ4F840Csl/"><img src="./assets/leetcode-banner.svg" width="100%" alt="Mohit Suthar - LeetCode profile" /></a>
+  <a href="https://leetcode.com/u/IQ4F840Csl/"><img src="./assets/leetcode-banner2.svg" width="100%" alt="Mohit Suthar - LeetCode profile" /></a>
 </div>
 
 <h1 align="center">DSA Solved Problems on LeetCode</h1>
