@@ -11,21 +11,20 @@
  */
 class Solution {
 public:
-TreeNode *BST(vector<int>&preorder , int &index , int lower , int upper)
+TreeNode *bstFromPreorderroot(vector<int>&arr , int lower , int upper , int &index)
 {
-    if(index==preorder.size()||(preorder[index]<lower||preorder[index]>upper)) 
-    {
-        return NULL;
-    }
-    TreeNode *temp = new TreeNode(preorder[index++]);
-    temp->left = BST(preorder , index , lower , temp->val);
-    temp->right = BST(preorder , index , temp->val , upper);
+    if(index==arr.size()||arr[index]<lower||arr[index]>upper)
+    return NULL;
+    TreeNode *temp = new TreeNode(arr[index++]);
+    temp->left = bstFromPreorderroot(arr , lower , temp->val , index);
+    temp->right = bstFromPreorderroot(arr , temp->val , upper , index);
     return temp;
 }
     TreeNode* bstFromPreorder(vector<int>& preorder) {
+        int lower = INT_MIN;
+        int upper = INT_MAX;
         int index = 0;
-        int lower = INT_MIN  , upper =  INT_MAX;
-        TreeNode *root = BST(preorder , index ,lower , upper);
+        TreeNode *root = bstFromPreorderroot(preorder , lower , upper , index);
         return root;
         
     }
