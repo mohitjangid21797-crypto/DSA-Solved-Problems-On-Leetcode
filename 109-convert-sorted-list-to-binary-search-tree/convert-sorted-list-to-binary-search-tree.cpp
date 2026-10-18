@@ -21,16 +21,17 @@
  */
 class Solution {
 public:
-TreeNode *balanceBST(vector<int>&arr , int start , int end)
+TreeNode *listToBST(vector<int>&arr , int start , int end)
 {
     if(start>end)
     return NULL;
-    int mid = start + (end-start)/2;
+    int mid = start + (end-start+1)/2;
     TreeNode *temp = new TreeNode(arr[mid]);
-    temp->left = balanceBST(arr , start , mid-1);
-    temp->right = balanceBST(arr , mid+1 , end);
+    temp->left = listToBST(arr , start  , mid-1);
+    temp->right = listToBST(arr , mid+1 , end);
     return temp;
 }
+
     TreeNode* sortedListToBST(ListNode* head) {
         ListNode *temp = head;
         vector<int>arr;
@@ -39,7 +40,8 @@ TreeNode *balanceBST(vector<int>&arr , int start , int end)
             arr.push_back(temp->val);
             temp = temp->next;
         }
-        TreeNode *root = balanceBST(arr , 0 , arr.size()-1);
+        int start = 0 , end = arr.size()-1;
+        TreeNode *root = listToBST(arr , start , end);
         return root;
         
     }
